@@ -42,7 +42,7 @@
 
     <groupId>fish.payara.maven.extensions</groupId>
     <artifactId>regex-profile-activator</artifactId>
-    <version>0.2</version>
+    <version>0.3-SNAPSHOT</version>
 
     <name>Regex Profile Activator Maven Extension</name>
     <description>Allow profile activation using regex expressions.</description>
@@ -59,8 +59,8 @@
 
     <scm>
         <connection>scm:git:git@github.com:payara/ecosystem-maven-regex-profile-activation-extension.git</connection>
-        <url>scm:git:git@github.com:payara/ecosystem-maven-regex-profile-activation-extension.git</url>
-        <developerConnection>scm:git@github.com:payara/ecosystem-maven-regex-profile-activation-extension.git</developerConnection>
+	<url>https://github.com/payara/ecosystem-maven-regex-profile-activation-extension/</url>
+        <developerConnection>scm:git:git@github.com:payara/ecosystem-maven-regex-profile-activation-extension.git</developerConnection>
     </scm>
 
     <developers>
@@ -139,33 +139,12 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- Create Javadoc JAR. -->
             <plugin>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.0.1</version>
-                <executions>
-                    <execution>
-                        <id>create-javadoc-jar</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- Create source JAR. -->
-            <plugin>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>3.0.1</version>
-                <executions>
-                    <execution>
-                        <id>create-source-jar</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                </configuration>
             </plugin>
         </plugins>
     </build>
